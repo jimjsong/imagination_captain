@@ -26,6 +26,7 @@ the child a choice of 3 and one additional choice of 'Or do you want to do somet
 1. first choice
 2. second choice 
 3. third choice 
+
 Or do you want to do something else?
 
 each choice should be on a line by itself.  Make sure the line "Or do you want to do something else?" is on a line by itself.
@@ -33,7 +34,23 @@ The choices should be a prompt of what to do next, with some examples but a pers
 they want to do.  It can be from the examples or something completely different.  
 Each story should have a happy ending """
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+with st.sidebar:
+    st.image("ic3.png", width=300)
+    st.markdown("### Settings")
+    st.session_state["openai_model"] = st.selectbox(
+        "OpenAI Model",
+        [
+            "gpt-3.5-turbo",
+            "gpt-4-1106-preview",
+        ],
+    )
+    st.markdown("### OpenAI API Key")
+    st.session_state["openai_key"] = st.text_input(
+        "API Key", type="password", key="OPENAI_API_KEY"
+    )
+
+client = OpenAI(api_key=st.session_state["openai_key"])
+# client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
