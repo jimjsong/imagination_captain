@@ -2,7 +2,7 @@ from openai import OpenAI
 import streamlit as st
 
 st.title("Imagination Captain")
-st.markdown("#### Let the children's imagination be the captain of their journey!")
+st.markdown("#### Let your imagination be the captain of your journey!")
 col1, col2, col3 = st.columns(3)
 with col1:
     st.write("")
