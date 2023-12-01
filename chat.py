@@ -27,6 +27,8 @@ The choices should be a prompt of what to do next, with some examples but a pers
 they want to do.  It can be from the examples or something completely different.  
 Each story should have a happy ending """
 
+st.session_state["openai_model"] = "gpt-3.5-turbo"
+
 with st.sidebar:
     st.image("ic3.png", width=300)
     st.markdown("### Settings")
@@ -45,9 +47,9 @@ with st.sidebar:
 client = OpenAI(api_key=st.session_state["openai_key"])
 # client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
-    # st.session_state["openai_model"] = "gpt-4-1106-preview"
+# if "openai_model" not in st.session_state:
+#     st.session_state["openai_model"] = "gpt-3.5-turbo"
+#     # st.session_state["openai_model"] = "gpt-4-1106-preview"
 
 if "started" not in st.session_state:
     st.session_state["started"] = True
