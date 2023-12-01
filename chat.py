@@ -3,13 +3,6 @@ import streamlit as st
 
 st.title("Imagination Captain")
 st.markdown("#### Let your imagination be the captain of your journey!")
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.write("")
-with col2:
-    st.image("ic3.png", width=200)
-with col3:
-    st.write("")
 
 # st.markdown("#### Describe the story you want to hear and then we will begin.")
 system_prompt = """
